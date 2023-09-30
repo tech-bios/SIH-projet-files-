@@ -3,7 +3,7 @@ const submitButton = document.querySelector("#submit");
 const message = document.querySelector("#message");
 const submitSection = document.querySelector("#submit-section");
 
-//Events For touch and mouse
+
 let events = {
   mouse: {
     over: "click",
@@ -14,10 +14,10 @@ let events = {
 };
 
 let deviceType = "";
-//Detect touch device
+
 const isTouchDevice = () => {
   try {
-    //We try to create TouchEvent (it would fail for desktops and throw error)
+    
     document.createEvent("TouchEvent");
     deviceType = "touch";
     return true;
@@ -33,10 +33,10 @@ starContainer.forEach((element, index) => {
   element.addEventListener(events[deviceType].over, () => {
     submitButton.disabled = false;
     if (element.classList.contains("inactive")) {
-      //Fill Star
+     
       ratingUpdate(0, index, true);
     } else {
-      //Regular stars (remove color)
+     
       ratingUpdate(index, starContainer.length - 1, false);
     }
   });
@@ -54,7 +54,7 @@ const ratingUpdate = (start, end, active) => {
       starContainer[i].firstElementChild.className = "fa-star fa-regular";
     }
   }
-  //Message
+  
   let activeElements = document.getElementsByClassName("active");
   if (activeElements.length > 0) {
     switch (activeElements.length) {
